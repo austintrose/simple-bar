@@ -14,12 +14,6 @@ elif [ "$BATTERY_STATUS" == "AC" ]; then
   BATTERY_CHARGING="true"
 fi
 
-WIFI_STATUS=$(ifconfig en0 | grep status | cut -c 10-)
-WIFI_SSID=$(networksetup -getairportnetwork en0 | cut -c 24-)
-
-VOLUME=$(osascript -e 'set ovol to output volume of (get volume settings)')
-MUTED=$(osascript -e 'set ovol to output muted of (get volume settings)')
-
 echo $(cat <<-EOF
   {
     "time": "$TIME",
@@ -27,14 +21,6 @@ echo $(cat <<-EOF
       "percentage": "$BATTERY_PERCENTAGE",
       "charging": "$BATTERY_CHARGING",
       "remaining": "$BATTERY_REMAINING"
-    },
-    "wifi": {
-      "status": "$WIFI_STATUS",
-      "ssid": "$WIFI_SSID"
-    },
-    "sound": {
-      "volume": "$VOLUME",
-      "muted": "$MUTED"
     }
   }
 EOF

@@ -23,7 +23,7 @@ const className = `
     padding: 4px 5px;
     color: ${Theme.main};
     font-family: ${Theme.font};
-    font-size: 12px;
+    font-size: ${Theme.fontsize};
     z-index: 1;
   }
   .simple-bar__data > *:not(:last-of-type) {
@@ -46,12 +46,12 @@ const render = ({ output, error }) => {
   return (
     <div className="simple-bar__data">
       <Battery output={battery} />
-      <Sound output={sound} />
-      <Wifi output={wifi} />
       <DateDisplay />
       <Time output={time} />
     </div>
   )
+  // <Sound output={sound} />
+  // <Wifi output={wifi} />
 }
 
 export { command, refreshFrequency, className, render }

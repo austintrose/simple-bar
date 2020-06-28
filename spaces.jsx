@@ -15,7 +15,7 @@ const className = `
     left: 0;
     padding: 4px;
     color: white;
-    font-size: 11px;
+    font-size: ${Theme.fontsize};
     font-family: ${Theme.font};
     z-index: 1;
   }
@@ -30,7 +30,7 @@ const render = ({ output, error }) => {
   if (!data) return <div className="simple-bar__error">JSON error...</div>
   return (
     <div className="simple-bar__spaces">
-      <SpacesDisplay output={data.spaces} displayId={1} />
+      <SpacesDisplay output={data} displayId={1} />
     </div>
   )
 }

@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-PROCESS=$(/usr/local/bin/yabai -m query --windows --space)
+PROCESS=$(/usr/local/bin/yabai -m query --windows --window)
 
 echo $(cat <<-EOF
-  {
-    "process": $PROCESS
-  }
+$PROCESS
 EOF
 )
